@@ -1,0 +1,58 @@
+(deffacts productos
+   ;; Smartphones (4 marcas: samsung, apple, motorola, xiaomi)
+   (smartphone (sku-smartphone 1001) (marca samsung) (modelo SamsungNote21) (precio 799) (color negro))
+   (smartphone (sku-smartphone 1002) (marca apple) (modelo iPhone16) (precio 1000) (color blanco))
+   (smartphone (sku-smartphone 1003) (marca motorola) (modelo MotoG60) (precio 299) (color gris))
+   (smartphone (sku-smartphone 1004) (marca xiaomi) (modelo RedmiNote10) (precio 250) (color azul))
+   (smartphone (sku-smartphone 1005) (marca samsung) (modelo GalaxyA52) (precio 399) (color rojo))
+   (smartphone (sku-smartphone 1006) (marca apple) (modelo iPhone12) (precio 899) (color dorado))
+   (smartphone (sku-smartphone 1007) (marca motorola) (modelo MotoG100) (precio 450) (color verde))
+   (smartphone (sku-smartphone 1008) (marca xiaomi) (modelo PocoX3) (precio 320) (color azul))
+   (smartphone (sku-smartphone 1009) (marca samsung) (modelo GalaxyM32) (precio 279) (color blanco))
+   (smartphone (sku-smartphone 1010) (marca apple) (modelo iPhoneSE) (precio 600) (color negro))
+
+   ;; Computadores (4 marcas: hp, dell, lenovo, asus)
+   (Computador (sku-computador 2001) (marca apple) (modelo MacBookAir) (precio 1000) (capacidad 512GB) (ram 8GB))
+   (Computador (sku-computador 2002) (marca dell) (modelo Inspiron14) (precio 900) (capacidad 1TB) (ram 16GB))
+   (Computador (sku-computador 2003) (marca lenovo) (modelo IdeaPad3) (precio 750) (capacidad 256GB) (ram 8GB))
+   (Computador (sku-computador 2004) (marca asus) (modelo VivoBook15) (precio 800) (capacidad 1TB) (ram 16GB))
+   (Computador (sku-computador 2005) (marca hp) (modelo Envy13) (precio 950) (capacidad 512GB) (ram 16GB))
+   (Computador (sku-computador 2006) (marca dell) (modelo XPS13) (precio 1100) (capacidad 1TB) (ram 16GB))
+   (Computador (sku-computador 2007) (marca lenovo) (modelo YogaSlim7) (precio 980) (capacidad 512GB) (ram 16GB))
+   (Computador (sku-computador 2008) (marca asus) (modelo ZenBook13) (precio 870) (capacidad 512GB) (ram 8GB))
+   (Computador (sku-computador 2009) (marca hp) (modelo SpectreX360) (precio 1200) (capacidad 1TB) (ram 16GB))
+   (Computador (sku-computador 2010) (marca dell) (modelo Latitude7420) (precio 990) (capacidad 1TB) (ram 16GB))
+
+   ;; Accesorios (4 marcas: logitech, hp, samsung, xiaomi)
+   (Accesorios (sku-accesorio 3001) (nombre TecladoMecanico) (marca logitech) (modelo G213) (precio 120) (tipo entrada))
+   (Accesorios (sku-accesorio 3002) (nombre MouseInalambrico) (marca hp) (modelo Z3700) (precio 35) (tipo entrada))
+   (Accesorios (sku-accesorio 3003) (nombre CargadorRapido) (marca samsung) (modelo EP-TA800) (precio 25) (tipo energia))
+   (Accesorios (sku-accesorio 3004) (nombre PowerBank) (marca xiaomi) (modelo MiPower3) (precio 45) (tipo energia))
+   (Accesorios (sku-accesorio 3005) (nombre AudifonosBT) (marca logitech) (modelo H800) (precio 99) (tipo audio))
+   (Accesorios (sku-accesorio 3006) (nombre WebCam) (marca hp) (modelo W200) (precio 65) (tipo video))
+   (Accesorios (sku-accesorio 3007) (nombre CargadorAuto) (marca samsung) (modelo EP-L1100) (precio 30) (tipo energia))
+   (Accesorios (sku-accesorio 3008) (nombre CableUSB) (marca xiaomi) (modelo TypeC) (precio 10) (tipo conexion))
+   (Accesorios (sku-accesorio 3009) (nombre MousePad) (marca logitech) (modelo G240) (precio 20) (tipo entrada))
+   (Accesorios (sku-accesorio 3010) (nombre SoporteLaptop) (marca hp) (modelo Stand360) (precio 40) (tipo soporte))
+
+   ;; Clientes
+   (Clientes (nombre "Juan Perez") (cliente-id 1) (direccion "Calle 1, CDMX") (telefono "555-1234"))
+   (Clientes (nombre "María Lopez") (cliente-id 2) (direccion "Av. Reforma 45") (telefono "555-5678"))
+   (Clientes (nombre "Carlos Diaz") (cliente-id 3) (direccion "Calle 8, GDL") (telefono "555-8765"))
+   (Clientes (nombre "Laura Torres") (cliente-id 4) (direccion "Blvd. Norte 20") (telefono "555-2222"))
+   (Clientes (nombre "Ana Garcia") (cliente-id 5) (direccion "Av. Central 99") (telefono "555-1111"))
+
+    ;; tarjetas de credito
+    (TarjetaCredito (cliente-id 1) (tarjeta-id 5001) (banco "BBVA") (grupo "Visa") (fecha-expiracion 12 2025))
+    (TarjetaCredito (cliente-id 2) (tarjeta-id 5002) (banco "Liverpool") (grupo "Visa") (fecha-expiracion 6 2026))
+    (TarjetaCredito (cliente-id 3) (tarjeta-id 5003) (banco "Banorte") (grupo "Visa") (fecha-expiracion 6 2025))
+    (TarjetaCredito (cliente-id 4) (tarjeta-id 5004) (banco "HSBC") (grupo "Amex") (fecha-expiracion 11 2024))
+    (TarjetaCredito (cliente-id 5) (tarjeta-id 5005) (banco "Banamex") (grupo "MasterCard") (fecha-expiracion 7 2027))
+
+    ;; Vales
+    (Vale (vale-id 1) (valor 50))
+    (Vale (vale-id 2) (valor 100))
+    (Vale (vale-id 3) (valor 150))
+    (Vale (vale-id 4) (valor 200))
+)
+

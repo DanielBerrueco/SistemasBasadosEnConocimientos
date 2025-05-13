@@ -1,0 +1,105 @@
+1. En la compra de un iPhone 16, con tarjetas Banamex,  ofrece 24 meses sin intereses:
+2. En la compra de un “Samsung Note 21”, con tarjeta de Liverpool VISA, ofrece 12 meses sin intereses.
+3. En la compra, al contado, de una “MacBook Air” y un iPhone16, ofrecer 100 pesos en vales por cada 1000 pesos de compra y agregarlos a los puntos del cliente.
+4. Si el Cliente compra un Smartphone, ofrece una funda y mica con un 15% de descuento sobre accesorios a traves de un mensaje. 
+5. al registrar una tarjeta de credito revisar su fecha de expiración, si ya está vencida cancelar el registro e imprimir mensaje de error
+6. Si la cantidad de producto en una orden es mayor a 10 clasificarlo como mayoreo y dar un descuento del 10% sobre el total de la orden. Imprimir dicho mensaje
+7. Tras cada orden de compra revisar el stock disponible de dicho producto, si no hay stock, imprimir mensaje de error y cancelar la orden.
+8. Tras cada orden de compra valida actualizar el stock del producto vendido, restando la cantidad vendida al stock disponible.
+9. Al registrar un cliente nuevo revisar que el id no se repita con otro cliente, si se repite cancelar el registro e imprimir mensaje de error
+10. Si un clinete pide un producto que no existe, imprimir mensaje de error y cancelar la orden.
+11. Calcular el total de la OrdenCompra
+12. Ofrecer un descuento si un telefono es negro y cuesta más de 500
+13. Si un accesorio es menor a 50 otorga 10 puntos extras al cliente
+14. Verifica que el cliente tenga un numero de telefono
+15. si un accesorio y una computaodra son se la misma marca notificar de una promocion
+16. Hacer restock si algun producto se queda en 0
+17. Si una orden no tiene items asociados notificar
+18. si una orden tiene dos accesorios del mismo tipo ofrecer un descuento en un tercer accesorio
+19. Si tiene más de 100 puntos otorga un descuento
+20. Verificar orden sin cliente registrado
+
+Para cargar un archivo:
+(load "C:\\Users\\Dilan\\Desktop\\Escuela\\Septimo\\Sistemas\\Hands-on 3\\templates.clp")
+(load "C:\\Users\\Dilan\\Desktop\\Escuela\\Septimo\\Sistemas\\Hands-on 3\\rules.clp")
+(load "C:\\Users\\Dilan\\Desktop\\Escuela\\Septimo\\Sistemas\\Hands-on 3\\facts.clp")
+
+
+(assert (OrdenCompra (orden-id 102)  (cliente-id 2)  (fecha "2025-05-12")  (producto-sku 3001)  (cantidad 1)))
+
+
+Regla 1
+
+(assert (OrdenCompra  (orden-id 103)  (cliente-id 5)  (fecha "2025-05-12")  (total 0)  (procesada no)))
+(assert (ItemOrden  (orden-id 103)  (producto-sku 2001)  (cantidad 1)))
+(assert (ItemOrden  (orden-id 103)  (producto-sku 1002)  (cantidad 2)))
+(assert (ItemOrden  (orden-id 103)  (producto-sku 3004)  (cantidad 3)))
+
+
+REGLA 2
+
+(assert (OrdenCompra (orden-id 1001) (cliente-id 2) (fecha "2025-06-02") (total 0) (procesada no)))
+(assert (ItemOrden (orden-id 1001) (producto-sku 1001) (cantidad 1) (procesado no)))
+
+
+
+REGLA 3
+
+(assert (OrdenCompra (orden-id 105) (cliente-id 5) (fecha "2025-05-12") (total 0) (procesada no)))
+
+(assert (ItemOrden (orden-id 105) (producto-sku 2001) (cantidad 1)))
+
+(assert (ItemOrden (orden-id 105) (producto-sku 1002) (cantidad 1)))
+
+
+REGLA 6 (MAYOREO)
+
+(assert (OrdenCompra (orden-id 125) (cliente-id 3) (fecha "2025-05-21") (total 0) (procesada no)))
+
+
+(assert (ItemOrden (orden-id 125) (producto-sku 1003) (cantidad 11) (procesado no)))
+
+
+REGLA 12
+(assert (OrdenCompra (orden-id 500) (cliente-id 2) (fecha "2025-05-20") (total 0) (procesada no)))
+(assert (ItemOrden (orden-id 500) (producto-sku 1001) (cantidad 1) (procesado no)))
+
+
+
+REGLA 14
+
+(assert (Clientes (nombre "Sin Telefono") (cliente-id 10) (direccion "Some Address") (telefono "")))
+
+REGLA 15
+
+(assert (OrdenCompra (orden-id 5002) (cliente-id 2) (fecha "2025-07-03") (total 0) (procesada no)))
+(assert (ItemOrden (orden-id 5002) (producto-sku 2005) (cantidad 1) (procesado no)))
+(assert (ItemOrden (orden-id 5002) (producto-sku 3002) (cantidad 1) (procesado no)))
+
+REGLA 16
+
+(assert (Accesorios (sku-accesorio 3100) (nombre TestAcc) (marca test) (modelo T1) (precio 40) (tipo entrada) (stock 0)))
+
+
+REGLA 17
+
+(assert (OrdenCompra (orden-id 5003) (cliente-id 4) (fecha "2025-07-04") (total 0) (procesada no)))
+
+
+REGLA 18
+
+(assert (OrdenCompra (orden-id 5004) (cliente-id 5) (fecha "2025-07-05") (total 0) (procesada no)))
+(assert (ItemOrden (orden-id 5004) (producto-sku 3003) (cantidad 1) (procesado no)))
+
+
+REGLA 19
+
+(assert (OrdenCompra (orden-id 130) (cliente-id 3) (fecha "2025-05-24") (total 0) (procesada no)))
+
+(assert (ItemOrden (orden-id 130) (producto-sku 1002) (cantidad 1) (procesado no)))
+
+(assert (ItemOrden (orden-id 130) (producto-sku 1002) (cantidad 1) (procesado no)))
+
+REGLA 20
+
+(assert (OrdenCompra (orden-id 140) (fecha "2025-05-25") (total 0) (procesada no)))
